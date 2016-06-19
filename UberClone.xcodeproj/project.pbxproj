@@ -7,25 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1DF6D01D1455760006B72B /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DF6CF1D1455760006B72B /* MapView.m */; };
+		0E1DF6D31D1459CC0006B72B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DF6D21D1459CC0006B72B /* MapViewController.m */; };
+		0E47E1DF1D15972A001CC766 /* SuggestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47E1DE1D15972A001CC766 /* SuggestionTableViewCell.m */; };
+		0E47E1E21D159DDD001CC766 /* LocationSuggestionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47E1E11D159DDD001CC766 /* LocationSuggestionManager.m */; };
+		0E47E1E51D15ACE3001CC766 /* LocationPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47E1E41D15ACE3001CC766 /* LocationPin.m */; };
+		0E47E1E81D15ADA4001CC766 /* LocationPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47E1E71D15ADA4001CC766 /* LocationPinView.m */; };
+		0E47E1EB1D15C43C001CC766 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47E1EA1D15C43C001CC766 /* LocationManager.m */; };
 		0EBE321E1D14519D00A6E870 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE321D1D14519D00A6E870 /* main.m */; };
 		0EBE32211D14519D00A6E870 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE32201D14519D00A6E870 /* AppDelegate.m */; };
-		0EBE32241D14519D00A6E870 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE32231D14519D00A6E870 /* ViewController.m */; };
 		0EBE32271D14519D00A6E870 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EBE32251D14519D00A6E870 /* Main.storyboard */; };
 		0EBE32291D14519D00A6E870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EBE32281D14519D00A6E870 /* Assets.xcassets */; };
 		0EBE322C1D14519D00A6E870 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EBE322A1D14519D00A6E870 /* LaunchScreen.storyboard */; };
+		0EE4FD871D1460B2003C178F /* MapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4FD861D1460B2003C178F /* MapViewModel.m */; };
+		0EE4FD8A1D1465A6003C178F /* AppleMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4FD891D1465A6003C178F /* AppleMapViewModel.m */; };
+		0EE4FD8D1D1465B5003C178F /* GoogleMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4FD8C1D1465B5003C178F /* GoogleMapViewModel.m */; };
+		0EE4FD901D1469D8003C178F /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4FD8F1D1469D8003C178F /* Utils.m */; };
+		0EE9F5CA1D155C2D00C5DD60 /* LocationNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE9F5C91D155C2D00C5DD60 /* LocationNameView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E1DF6CE1D1455760006B72B /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		0E1DF6CF1D1455760006B72B /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		0E1DF6D11D1459CC0006B72B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = UberClone/MapViewController.h; sourceTree = SOURCE_ROOT; };
+		0E1DF6D21D1459CC0006B72B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = UberClone/MapViewController.m; sourceTree = SOURCE_ROOT; };
+		0E47E1DD1D15972A001CC766 /* SuggestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionTableViewCell.h; sourceTree = "<group>"; };
+		0E47E1DE1D15972A001CC766 /* SuggestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionTableViewCell.m; sourceTree = "<group>"; };
+		0E47E1E01D159DDD001CC766 /* LocationSuggestionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSuggestionManager.h; sourceTree = "<group>"; };
+		0E47E1E11D159DDD001CC766 /* LocationSuggestionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSuggestionManager.m; sourceTree = "<group>"; };
+		0E47E1E31D15ACE3001CC766 /* LocationPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPin.h; sourceTree = "<group>"; };
+		0E47E1E41D15ACE3001CC766 /* LocationPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPin.m; sourceTree = "<group>"; };
+		0E47E1E61D15ADA4001CC766 /* LocationPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPinView.h; sourceTree = "<group>"; };
+		0E47E1E71D15ADA4001CC766 /* LocationPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPinView.m; sourceTree = "<group>"; };
+		0E47E1E91D15C43C001CC766 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		0E47E1EA1D15C43C001CC766 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		0EBE32191D14519D00A6E870 /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EBE321D1D14519D00A6E870 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0EBE321F1D14519D00A6E870 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0EBE32201D14519D00A6E870 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0EBE32221D14519D00A6E870 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0EBE32231D14519D00A6E870 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0EBE32261D14519D00A6E870 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EBE32281D14519D00A6E870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EBE322B1D14519D00A6E870 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EBE322D1D14519D00A6E870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EE4FD851D1460B2003C178F /* MapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewModel.h; sourceTree = "<group>"; };
+		0EE4FD861D1460B2003C178F /* MapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewModel.m; sourceTree = "<group>"; };
+		0EE4FD881D1465A6003C178F /* AppleMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleMapViewModel.h; sourceTree = "<group>"; };
+		0EE4FD891D1465A6003C178F /* AppleMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleMapViewModel.m; sourceTree = "<group>"; };
+		0EE4FD8B1D1465B5003C178F /* GoogleMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapViewModel.h; sourceTree = "<group>"; };
+		0EE4FD8C1D1465B5003C178F /* GoogleMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapViewModel.m; sourceTree = "<group>"; };
+		0EE4FD8E1D1469D8003C178F /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		0EE4FD8F1D1469D8003C178F /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		0EE9F5C71D155BB600C5DD60 /* UberClone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UberClone_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		0EE9F5C81D155C2D00C5DD60 /* LocationNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationNameView.h; sourceTree = "<group>"; };
+		0EE9F5C91D155C2D00C5DD60 /* LocationNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationNameView.m; sourceTree = "<group>"; };
+		0EE9F5CB1D155E3500C5DD60 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +74,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E47E1D91D1596E6001CC766 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E47E1DA1D1596E6001CC766 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0E47E1DA1D1596E6001CC766 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0E6AB8361D171FAB001C3CF2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0EE4FD8E1D1469D8003C178F /* Utils.h */,
+				0EE4FD8F1D1469D8003C178F /* Utils.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		0E6AB8371D171FD5001C3CF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E47E1E61D15ADA4001CC766 /* LocationPinView.h */,
+				0E47E1E71D15ADA4001CC766 /* LocationPinView.m */,
+				0E1DF6CE1D1455760006B72B /* MapView.h */,
+				0E1DF6CF1D1455760006B72B /* MapView.m */,
+				0EE9F5C81D155C2D00C5DD60 /* LocationNameView.h */,
+				0EE9F5C91D155C2D00C5DD60 /* LocationNameView.m */,
+				0E47E1DD1D15972A001CC766 /* SuggestionTableViewCell.h */,
+				0E47E1DE1D15972A001CC766 /* SuggestionTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0E6AB8381D171FDA001C3CF2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0EE4FD851D1460B2003C178F /* MapViewModel.h */,
+				0EE4FD861D1460B2003C178F /* MapViewModel.m */,
+				0EE4FD881D1465A6003C178F /* AppleMapViewModel.h */,
+				0EE4FD891D1465A6003C178F /* AppleMapViewModel.m */,
+				0EE4FD8B1D1465B5003C178F /* GoogleMapViewModel.h */,
+				0EE4FD8C1D1465B5003C178F /* GoogleMapViewModel.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		0E6AB8391D171FE4001C3CF2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0E47E1E01D159DDD001CC766 /* LocationSuggestionManager.h */,
+				0E47E1E11D159DDD001CC766 /* LocationSuggestionManager.m */,
+				0E47E1E91D15C43C001CC766 /* LocationManager.h */,
+				0E47E1EA1D15C43C001CC766 /* LocationManager.m */,
+				0E1DF6D11D1459CC0006B72B /* MapViewController.h */,
+				0E1DF6D21D1459CC0006B72B /* MapViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0E6AB83A1D171FEC001C3CF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E47E1E31D15ACE3001CC766 /* LocationPin.h */,
+				0E47E1E41D15ACE3001CC766 /* LocationPin.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		0EBE32101D14519D00A6E870 = {
 			isa = PBXGroup;
 			children = (
@@ -58,15 +167,17 @@
 		0EBE321B1D14519D00A6E870 /* UberClone */ = {
 			isa = PBXGroup;
 			children = (
+				0E6AB8361D171FAB001C3CF2 /* Util */,
+				0E47E1D91D1596E6001CC766 /* Resources */,
+				0EBE32331D14527500A6E870 /* MapView */,
 				0EBE321F1D14519D00A6E870 /* AppDelegate.h */,
 				0EBE32201D14519D00A6E870 /* AppDelegate.m */,
-				0EBE32221D14519D00A6E870 /* ViewController.h */,
-				0EBE32231D14519D00A6E870 /* ViewController.m */,
 				0EBE32251D14519D00A6E870 /* Main.storyboard */,
 				0EBE32281D14519D00A6E870 /* Assets.xcassets */,
 				0EBE322A1D14519D00A6E870 /* LaunchScreen.storyboard */,
 				0EBE322D1D14519D00A6E870 /* Info.plist */,
 				0EBE321C1D14519D00A6E870 /* Supporting Files */,
+				0EE9F5CB1D155E3500C5DD60 /* Constant.h */,
 			);
 			path = UberClone;
 			sourceTree = "<group>";
@@ -74,9 +185,21 @@
 		0EBE321C1D14519D00A6E870 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0EE9F5C71D155BB600C5DD60 /* UberClone_Prefix.pch */,
 				0EBE321D1D14519D00A6E870 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0EBE32331D14527500A6E870 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				0E6AB83A1D171FEC001C3CF2 /* Model */,
+				0E6AB8391D171FE4001C3CF2 /* Controller */,
+				0E6AB8381D171FDA001C3CF2 /* ViewModel */,
+				0E6AB8371D171FD5001C3CF2 /* View */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +272,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EBE32241D14519D00A6E870 /* ViewController.m in Sources */,
+				0E47E1E81D15ADA4001CC766 /* LocationPinView.m in Sources */,
+				0E1DF6D01D1455760006B72B /* MapView.m in Sources */,
 				0EBE32211D14519D00A6E870 /* AppDelegate.m in Sources */,
+				0EE4FD8D1D1465B5003C178F /* GoogleMapViewModel.m in Sources */,
+				0EE4FD901D1469D8003C178F /* Utils.m in Sources */,
+				0EE4FD8A1D1465A6003C178F /* AppleMapViewModel.m in Sources */,
+				0EE9F5CA1D155C2D00C5DD60 /* LocationNameView.m in Sources */,
 				0EBE321E1D14519D00A6E870 /* main.m in Sources */,
+				0E47E1EB1D15C43C001CC766 /* LocationManager.m in Sources */,
+				0E47E1E21D159DDD001CC766 /* LocationSuggestionManager.m in Sources */,
+				0E47E1E51D15ACE3001CC766 /* LocationPin.m in Sources */,
+				0EE4FD871D1460B2003C178F /* MapViewModel.m in Sources */,
+				0E1DF6D31D1459CC0006B72B /* MapViewController.m in Sources */,
+				0E47E1DF1D15972A001CC766 /* SuggestionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +397,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = UberClone_Prefix.pch;
 				INFOPLIST_FILE = UberClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.9app.UberClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -274,10 +416,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = UberClone_Prefix.pch;
 				INFOPLIST_FILE = UberClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.9app.UberClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -300,6 +450,7 @@
 				0EBE32321D14519D00A6E870 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
