@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeAnnotation:(id <MKAnnotation>)annotation;
 - (CLLocationCoordinate2D) centerCoordinate;
 - (void)drawRouteFromLocation:(LocationPin *)source toLocation:(LocationPin *)destination;
+- (void)removeCurrentRouteDrawing;
 
 @optional
 // For Apple Map only

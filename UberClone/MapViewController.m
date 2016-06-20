@@ -49,11 +49,11 @@ MKMapRect MKMapRectFromMKCoordinateRegion(MKCoordinateRegion region)
 @property (strong, nonatomic) IBOutlet UIButton           *uberItButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *suggestionViewBottom;
 
-@property (strong, nonatomic) UIToolbar *blurView;
-@property (strong, nonatomic) MapView   *mapView;
+@property (strong, nonatomic) UIView  *blurView;
+@property (strong, nonatomic) MapView *mapView;
 
 
-@property (nonatomic, strong) MKLocalSearchResponse *localSearchResponse;
+@property (nonatomic, strong) NSArray *localSearchItems;
 @property (nonatomic, strong) LocationPin *sourcePin;
 @property (nonatomic, strong) LocationPin *destinationPin;
 
@@ -121,9 +121,9 @@ MKMapRect MKMapRectFromMKCoordinateRegion(MKCoordinateRegion region)
     self.pinView = [LocationPinView pin];
     self.sourcePin = [[LocationPin alloc] init];
     self.destinationPin = [[LocationPin alloc] init];
-    self.blurView = [[UIToolbar alloc] init];
+    self.blurView = [[UIView alloc] init];
+    self.blurView.backgroundColor = [UIColor blackColor];
     self.blurView.alpha = 0.5;
-    self.blurView.barStyle = UIBarStyleBlack;
     [self.view addSubview:self.blurView];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onTapBackgroundView:)];
     [self.blurView addGestureRecognizer:tap];
@@ -543,7 +543,7 @@ MKMapRect MKMapRectFromMKCoordinateRegion(MKCoordinateRegion region)
         [self.mapView setRegion:candidateRegion animated:YES];
     }
     
-//    [self.mapView drawRouteFromLocation:self.sourcePin toLocation:self.destinationPin];
+    [self.mapView drawRouteFromLocation:self.sourcePin toLocation:self.destinationPin];
     
 }
 
@@ -570,6 +570,12 @@ MKMapRect MKMapRectFromMKCoordinateRegion(MKCoordinateRegion region)
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    if (self.locationSelectionMode != LocationSelectionModeNone)
+    {
+        [self.mapView removeCurrentRouteDrawing];
+    }
+    
 }
 
 
@@ -637,14 +643,46 @@ MKMapRect MKMapRectFromMKCoordinateRegion(MKCoordinateRegion region)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    tableView.hidden = (self.localSearchResponse.mapItems.count == 0);
-    return self.localSearchResponse.mapItems.count;
+    tableView.hidden = (self.localSearchItems.count == 0);
+    return self.localSearchItems.count;
+}
+
+- (NSArray *)filterLocationWithLocalSearchResponse:(MKLocalSearchResponse *)response
+{
+    if (response.mapItems.count == 0)
+    {
+        return [NSArray new];
+    }
+    
+    __block NSMutableArray *results = [NSMutableArray new];
+    
+    [response.mapItems enumerateObjectsUsingBlock:^(MKMapItem *item, NSUInteger idx, BOOL * _Nonnull stop)
+     {
+         if ([item.placemark.countryCode isEqualToString:@"VN"])
+         {
+             [results addObject:item];
+         }
+     }];
+    
+    return [NSArray arrayWithArray:results];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SuggestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
-    MKMapItem *item = [self.localSearchResponse.mapItems objectAtIndex:indexPath.row];
+    
+    if (self.localSearchItems.count <= indexPath.row)
+    {
+        return cell;
+    }
+    
+    MKMapItem *item = [self.localSearchItems objectAtIndex:indexPath.row];
+    
+    if (![item isKindOfClass:[MKMapItem class]])
+    {
+        return cell;
+    }
     
     NSMutableArray *details = [NSMutableArray new];
     if (item.placemark.subLocality) {
@@ -664,13 +702,13 @@ MKMapRect MKMapRectFromMKCoordinateRegion(MKCoordinateRegion region)
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (self.localSearchResponse.mapItems.count <= indexPath.row)
+    if (self.localSearchItems.count <= indexPath.row)
     {
         return;
     }
     
     // Update location views
-    MKMapItem *item = [self.localSearchResponse.mapItems objectAtIndex:indexPath.row];
+    MKMapItem *item = [self.localSearchItems objectAtIndex:indexPath.row];
     NSArray *locationViews = @[self.sourceView, self.destinationView];
     for (LocationNameView *view in locationViews)
     {
@@ -767,14 +805,16 @@ MKMapRect MKMapRectFromMKCoordinateRegion(MKCoordinateRegion region)
     if (currentText.length > 0)
     {
         [[LocationSuggestionManager sharedManager] suggestLocationWithSearchString:currentText region:self.mapView.region completion:^(MKLocalSearchResponse *response, NSError *error) {
-            self.localSearchResponse = response;
+//            self.localSearchResponse = response;
+            self.localSearchItems = [self filterLocationWithLocalSearchResponse:response];
+            
             [self.suggestionsView reloadData];
             
         }];
     }
     else
     {
-        self.localSearchResponse = nil;
+        self.localSearchItems = nil;
         [self.suggestionsView reloadData];
     }
     

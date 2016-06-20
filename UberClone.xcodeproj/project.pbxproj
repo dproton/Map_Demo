@@ -403,7 +403,7 @@
 				);
 				GCC_PREFIX_HEADER = UberClone_Prefix.pch;
 				INFOPLIST_FILE = UberClone/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.9app.UberClone;
@@ -422,7 +422,7 @@
 				);
 				GCC_PREFIX_HEADER = UberClone_Prefix.pch;
 				INFOPLIST_FILE = UberClone/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.9app.UberClone;

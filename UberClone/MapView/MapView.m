@@ -169,6 +169,11 @@
     [self.mapViewModel drawRouteFromLocation:source toLocation:destination];
 }
 
+- (void)removeCurrentRouteDrawing
+{
+    [self.mapViewModel removeCurrentRouteDrawing];
+}
+
 #pragma mark - Class's private methods
 - (void)_init
 {

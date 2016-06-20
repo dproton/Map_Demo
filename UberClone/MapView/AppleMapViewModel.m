@@ -101,32 +101,38 @@
 
 - (void)drawRouteFromLocation:(LocationPin *)source toLocation:(LocationPin *)destination
 {
-    MKPlacemark *sourcePlaceMark;
-    if (![source.place isKindOfClass:[MKPlacemark class]])
-    {
-        sourcePlaceMark = [[MKPlacemark alloc] initWithPlacemark:source.place];
-    }
-    else
-    {
-        sourcePlaceMark = (MKPlacemark *)source.place;
-    }
+    [self removeCurrentRouteDrawing];
     
-    MKPlacemark *destinationPlaceMark;
+    MKPlacemark *sourcePlaceMark = [[MKPlacemark alloc]initWithCoordinate:source.actualCoordinate addressDictionary:nil];
+    MKPlacemark *destinationPlaceMark = [[MKPlacemark alloc]initWithCoordinate:destination.actualCoordinate addressDictionary:nil];
 
-    if (![destination.place isKindOfClass:[MKPlacemark class]])
-    {
-        destinationPlaceMark = [[MKPlacemark alloc] initWithPlacemark:destination.place];
-    }
-    else
-    {
-        destinationPlaceMark = (MKPlacemark *)destination.place;
-    }
+    
+//    MKPlacemark *sourcePlaceMark;
+//    if (![source.place isKindOfClass:[MKPlacemark class]])
+//    {
+//        sourcePlaceMark = [[MKPlacemark alloc] initWithPlacemark:source.place];
+//    }
+//    else
+//    {
+//        sourcePlaceMark = (MKPlacemark *)source.place;
+//    }
+//    
+//    MKPlacemark *destinationPlaceMark;
+//
+//    if (![destination.place isKindOfClass:[MKPlacemark class]])
+//    {
+//        destinationPlaceMark = [[MKPlacemark alloc] initWithPlacemark:destination.place];
+//    }
+//    else
+//    {
+//        destinationPlaceMark = (MKPlacemark *)destination.place;
+//    }
     
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
     
     request.source = [[MKMapItem alloc] initWithPlacemark:sourcePlaceMark];
     request.destination = [[MKMapItem alloc] initWithPlacemark:destinationPlaceMark];
-    request.requestsAlternateRoutes = YES;
+    request.requestsAlternateRoutes = NO;
     MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
     
     [directions calculateDirectionsWithCompletionHandler:
@@ -147,13 +153,18 @@
     for (MKRoute *route in response.routes)
     {
         [self.mkMapView addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+//        for (MKRouteStep *step in route.steps)
+//        {
+//            DEBUG_LOG(@"%@", step.instructions);
+//        }
+
     }
 }
 
 #pragma mark - MKMapViewDelegate
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
-    DEBUG_LOG(@"region Will Change");
+//    DEBUG_LOG(@"region Will Change");
     
     if ([self.delegate respondsToSelector:@selector(mapView:regionWillChangeAnimated:)])
     {
@@ -164,7 +175,7 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    DEBUG_LOG(@"region Did Change");
+//    DEBUG_LOG(@"region Did Change");
     
     if ([self.delegate respondsToSelector:@selector(mapView:regionDidChangeAnimated:)])
     {
@@ -184,6 +195,23 @@
     }
 }
 
+//- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+//{
+//    if ([overlay isKindOfClass: [MKPolyline class]])
+//    {
+//        // This is for a dummy overlay to work around a problem with overlays
+//        // not getting removed by the map view even though we asked for it to
+//        // be removed.
+//        MKOverlayView * dummyView = [[MKOverlayView alloc] init];
+//        dummyView.alpha = 0.0;
+//        return dummyView;
+//    }
+//    else
+//    {
+//        return nil;
+//    }
+//}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if ([self.delegate respondsToSelector:@selector(mapView:viewForAnnotation:)])
@@ -196,12 +224,43 @@
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id < MKOverlay >)overlay
 {
-    MKPolylineRenderer *renderer =
-    [[MKPolylineRenderer alloc] initWithOverlay:overlay];
-    renderer.strokeColor = [UIColor blueColor];
-    renderer.lineWidth = 5.0;
-    return renderer;
+    if ([overlay isKindOfClass:[MKPolyline class]])
+    {
+        MKPolylineRenderer *renderer = [[ MKPolylineRenderer alloc]initWithOverlay:overlay];
+        renderer.lineWidth = 10;
+        renderer.strokeColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+        [self _zoomToPolyLine:self.mkMapView polyLine:overlay animated:YES];
+        return renderer;
+    }
+    else
+    {
+        return nil;
+    }
 }
+
+
+#pragma mark - Utils
+
+-(void)_zoomToPolyLine:(MKMapView*)map polyLine:(MKPolyline*)polyLine animated:(BOOL)animated
+{
+//    MKPolygon* polygon =
+//    [MKPolygon polygonWithPoints:polyLine.points count:polyLine.pointCount];
+//    
+//    [self.mkMapView setRegion:MKCoordinateRegionForMapRect([polygon boundingMapRect])
+//          animated:animated];
+    
+    [map setVisibleMapRect:[polyLine boundingMapRect] edgePadding:UIEdgeInsetsMake(35.0, 35.0, 35.0, 35.0) animated:animated];
+}
+
+- (void)removeCurrentRouteDrawing
+{
+    if (self.mkMapView.overlays.count)
+    {
+        [self.mkMapView removeOverlays:self.mkMapView.overlays];
+
+    }
+}
+
 
 
 #pragma mark - Class's private methods
