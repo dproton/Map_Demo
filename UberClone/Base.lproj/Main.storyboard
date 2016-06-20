@@ -99,8 +99,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btx-Lp-fmt">
-                                <rect key="frame" x="5" y="560" width="590" height="30"/>
+                                <rect key="frame" x="5" y="552" width="590" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="nQL-kI-ubI"/>
+                                </constraints>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -109,7 +112,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7H-T2-kJX">
-                                <rect key="frame" x="5" y="560" width="590" height="30"/>
+                                <rect key="frame" x="5" y="552" width="590" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Uber it">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,6 +141,7 @@
                             <constraint firstItem="RgK-cO-gXH" firstAttribute="leading" secondItem="hQv-XX-NSe" secondAttribute="leading" id="jQd-OF-fgd"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="btx-Lp-fmt" secondAttribute="bottom" constant="10" id="n2z-ub-zAK"/>
                             <constraint firstItem="leY-YP-u39" firstAttribute="trailing" secondItem="RgK-cO-gXH" secondAttribute="trailing" id="tNC-n5-dHb"/>
+                            <constraint firstItem="K7H-T2-kJX" firstAttribute="height" secondItem="btx-Lp-fmt" secondAttribute="height" id="tV6-sT-8kj"/>
                             <constraint firstItem="leY-YP-u39" firstAttribute="leading" secondItem="RgK-cO-gXH" secondAttribute="leading" id="vBE-2q-sKe"/>
                             <constraint firstItem="K7H-T2-kJX" firstAttribute="width" secondItem="btx-Lp-fmt" secondAttribute="width" id="z9L-Js-oZf"/>
                         </constraints>
